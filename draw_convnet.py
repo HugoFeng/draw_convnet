@@ -119,17 +119,15 @@ if __name__ == '__main__':
     #           the second pair (3, 9) is the scaled pixel size only for plotting on large feature maps.
     #           Same thing applies to 'map' size, where size used for plotting may be smaller than the actual size.
     input_setting = {'map': (224, 224, 56, 56), 'map_num': 3}
-    network_settings = [{'type': 'Convolution1_v', 'kernel': (1, 3, 3, 9), 'map': (224, 224, 56, 56), 'map_num': 5},
-                        {'type': 'Convolution1_h', 'kernel': (3, 1, 9, 3), 'map': (224, 224, 56, 56), 'map_num': 16},
-                        {'type': 'Max-pooling', 'kernel': (2, 2, 6, 6), 'map': (112, 112, 40, 40), 'map_num': 16},
-                        {'type': 'Convolution2', 'kernel': (3, 1, 9, 3), 'map': (112, 112, 40, 40), 'map_num': 32},
-                        {'type': 'Max-pooling', 'kernel': (2, 2, 6, 6), 'map': (56, 56, 32, 32), 'map_num': 32},
-                        {'type': 'Convolution3', 'kernel': (3, 1, 9, 3), 'map': (56, 56, 32, 32), 'map_num': 64},
-                        {'type': 'Max-pooling', 'kernel': (2, 2, 6, 6), 'map': (28, 28, 20, 20), 'map_num': 64},
-                        {'type': 'Convolution4', 'kernel': (3, 1, 9, 3), 'map': (28, 28, 20, 20), 'map_num': 128},
-                        {'type': 'Max-pooling', 'kernel': (2, 2, 6, 6), 'map': (14, 14), 'map_num': 128},
-                        {'type': 'Convolution5', 'kernel': (3, 1), 'map': (14, 14), 'map_num': 256},
-                        {'type': 'Max-pooling', 'kernel': (2, 2), 'map': (7, 7), 'map_num': 256}]
+    network_settings = [{'type': 'Convolution1_v', 'kernel': (1, 3, 3, 9), 'map': (112, 112, 56, 56), 'map_num': 5},
+                        {'type': 'Convolution1_h', 'kernel': (3, 1, 9, 3), 'map': (112, 112, 56, 56), 'map_num': 16},
+                        {'type': 'Max-pooling', 'kernel': (2, 2, 6, 6), 'map': (56, 56, 40, 40), 'map_num': 16},
+                        {'type': 'Convolution2', 'kernel': (1, 3, 3, 9), 'map': (56, 56, 40, 40), 'map_num': 32},
+                        {'type': 'Max-pooling', 'kernel': (2, 2, 6, 6), 'map': (28, 28, 32, 32), 'map_num': 32},
+                        {'type': 'Convolution3', 'kernel': (3, 3, 9, 9), 'map': (28, 28, 32, 32), 'map_num': 64},
+                        {'type': 'Max-pooling', 'kernel': (2, 2, 6, 6), 'map': (14, 14, 20, 20), 'map_num': 64},
+                        {'type': 'Convolution4', 'kernel': (3, 3, 5, 5), 'map': (14, 14, 20, 20), 'map_num': 128},
+                        {'type': 'Max-pooling', 'kernel': (2, 2), 'map': (7, 7), 'map_num': 128}]
     size_list = [input_setting['map']] + [setting['map'] for setting in network_settings]
     num_list = [input_setting['map_num']] + [setting['map_num'] for setting in network_settings]
     loc_diff_each_map = [3, -3]
